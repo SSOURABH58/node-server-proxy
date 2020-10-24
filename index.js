@@ -4,7 +4,7 @@ const ratelimit = require('express-rate-limit')
 const cors = require('cors')
 require('dotenv').config()
 
-app.use(cors())
+
 
 const express = require('express')
 const app = express()
@@ -41,7 +41,7 @@ app.get('/test', (req, res)=> {
 //     origin: *,
 //     optionsSuccessStatus: 200
 //   }
-
+app.use(cors())
 
 app.post('/weather',(req,res)=>{
     const lon = req.body.lon
