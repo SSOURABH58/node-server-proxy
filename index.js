@@ -1,7 +1,13 @@
 const { response } = require('express');
 const fetch = require('node-fetch')
 const ratelimit = require('express-rate-limit')
+const cros = require('cros')
 require('dotenv').config()
+
+const crosop = {
+  origin: [/\petswatercapsule\.com$/,"http://127.0.0.1:5500/"],
+  optionsSuccessStatus: 200
+}
 
 const express = require('express')
 const app = express()
@@ -33,7 +39,7 @@ app.get('/test', (req, res)=> {
     res.send('its working')
   })
 
-app.post('/weather',(req,res)=>{
+app.post('/weather',cors(corsOptions),(req,res)=>{
     const lon = req.body.lon
     const lat = req.body.lat
     const apikey = process.env.API_KEY
