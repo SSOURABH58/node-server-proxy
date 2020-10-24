@@ -29,9 +29,8 @@ app.use('/weather',limit2010)
 
 // API's
 
-app.post('/api', (req, res)=> {
-    console.log(req.body)
-    res.send('user ')
+app.get('/test', (req, res)=> {
+    res.send('its working')
   })
 
 app.post('/weather',(req,res)=>{
