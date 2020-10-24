@@ -37,7 +37,7 @@ app.get('/test', (req, res)=> {
 
 
 const crosop = {
-    origin: [/\petswatercapsule\.com$/,"http://127.0.0.1:5500/"],
+    origin: [/\petswatercapsule\.com$/,"http://127.0.0.1:5500/","https://todo.petswatercapsule.com/","https://petswatercapsule.com/"],
     optionsSuccessStatus: 200
   }
 
