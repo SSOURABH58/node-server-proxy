@@ -4,7 +4,7 @@
   "description": "its my 1st time working and learning about server side programing",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start":"index.js"
   },
   "author": "sourabh soni",
   "license": "MIT",
