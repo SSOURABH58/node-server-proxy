@@ -4,6 +4,7 @@ const ratelimit = require('express-rate-limit')
 const cors = require('cors')
 require('dotenv').config()
 
+app.use(cors())
 
 const express = require('express')
 const app = express()
@@ -36,13 +37,13 @@ app.get('/test', (req, res)=> {
   })
 
 
-const crosop = {
-    origin: "https://petswatercapsule.com",
-    optionsSuccessStatus: 200
-  }
+// const crosop = {
+//     origin: *,
+//     optionsSuccessStatus: 200
+//   }
 
 
-app.post('/weather',cors(crosop),(req,res)=>{
+app.post('/weather',(req,res)=>{
     const lon = req.body.lon
     const lat = req.body.lat
     const apikey = process.env.API_KEY
