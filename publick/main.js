@@ -1,8 +1,11 @@
 const lok = document.querySelector('.lok')
 const wet = document.querySelector('.wet')
 const btn = document.querySelector('.btn')
+const quote = document.querySelector('.quote')
+const qbtn = document.querySelector('.qbtn')
 
 btn.addEventListener('click',getwet)
+qbtn.addEventListener('click',getquote)
 
 function getwet(){
     navigator.geolocation.getCurrentPosition(position=>{
@@ -27,4 +30,10 @@ function getwet(){
                 
             })
     })
+}
+
+function getquote(){
+    fetch('/quote')
+        .then(res=>res.json())
+        .then(data=>{console.log(data)})
 }

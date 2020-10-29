@@ -11,7 +11,7 @@ const app = express()
 
 app.set('trust proxy', 1);
 
-app.listen(process.env.PORT||3000)
+app.listen(process.env.PORT||5000)
 
 
 app.use(express.static('publick'))
@@ -27,6 +27,7 @@ const limit2010 = ratelimit({
 //apply rate limit
 
 app.use('/weather',limit2010)
+app.use('/quote',limit2010)
 
 
 
@@ -41,7 +42,7 @@ app.get('/test', (req, res)=> {
 //     origin: *,
 //     optionsSuccessStatus: 200
 //   }
-app.use(cors({origin: ['https://petswatercapsule.com','https://mytodos.cf','https://todo.petswatercapsule.com']}))
+app.use(cors({origin: ['https://petswatercapsule.com','https://mytodos.cf','https://todo.petswatercapsule.com','http://localhost:3000']}))
 
 app.post('/weather',(req,res)=>{
     const lon = req.body.lon
@@ -79,4 +80,17 @@ app.post('/weather',(req,res)=>{
               res.json(response)
           })
     
+})
+
+//Quotes Api
+
+
+app.get('/quote',(req,res)=>{
+  fetch("https://zenquotes.io/api/quotes")
+  .then(responce => {return responce.json()})
+  .then(data=>{
+    let quots =data.filter(data=>data.q.length<=50)
+    const temp = quots.pop()
+    res.json({q:temp.q,a:temp.a})
+  })
 })
