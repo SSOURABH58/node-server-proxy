@@ -42,7 +42,7 @@ app.get('/test', (req, res)=> {
 //     origin: *,
 //     optionsSuccessStatus: 200
 //   }
-app.use(cors({origin: ['https://petswatercapsule.com','https://mytodos.cf','https://todo.petswatercapsule.com','http://localhost:3000']}))
+app.use(cors({origin: ['https://petswatercapsule.com','https://mytodos.cf','https://todo.petswatercapsule.com','https://mytodoz.cf','http://localhost:3000']}))
 
 app.post('/weather',(req,res)=>{
     const lon = req.body.lon
